@@ -8,7 +8,6 @@
 #'
 #' @noRd
 #'
-
 trim_path <- function(filenames){
   if(length(filenames) > 1){
     it_list <- vector(mode = "list", length = length(filenames))
@@ -33,7 +32,8 @@ trim_path <- function(filenames){
 #'
 #' @importFrom dplyr filter
 #'
-
+#' @noRd
+#'
 clean_data <- function(data,
                        DI = NULL,
                        externals = NULL,
@@ -56,3 +56,63 @@ clean_data <- function(data,
   # return
   data
 }
+
+#' Split equals
+#'
+#' @description Split a string at an equals sign, and grab a specified element from the split.
+#'
+#'@param string the target string
+#' @param get numeric; which element to get. passed to lapply.
+#' @param trim_ws TRUE/FALSE to trim whitespace.
+#'
+#' @importFrom magrittr %>%
+#'
+#' @noRd
+#'
+split.equals <- function(string, get = 1, trim_ws = T){
+  newstr <- unlist(lapply(strsplit(string,"[=]"),"[[",get))
+  if(trim_ws){
+    newstr <- newstr %>% trimws()
+  }
+  newstr
+}
+
+#' Split colon
+#'
+#' @description Split a string at a colon, and grab a specified element from the split.
+#'
+#' @param string the target string
+#' @param get numeric; which element to get. passed to lapply.
+#' @param trim_ws TRUE/FALSE to trim whitespace.
+#'
+#' @importFrom magrittr %>%
+#'
+#' @noRd
+#'
+split.colon <- function(string, get = 1, trim_ws = T){
+  newstr <- unlist(lapply(strsplit(string,"[:]"),"[[",get))
+  if(trim_ws){
+    newstr <- newstr %>% trimws()
+  }
+  newstr
+}
+
+#' Set elements in pipe with two brackets
+#'
+#' @description Streamlined indexing of list elements in pipe, from https://www.r-bloggers.com/2020/02/get-and-set-list-elements-with-magrittr/
+#'
+#' @param string the target string
+#'
+#' @noRd
+#'
+set_mb <- .Primitive("[[<-")
+
+#' Set elements in pipe with single bracket
+#'
+#' @description Streamlined indexing of list elements in pipe, from https://www.r-bloggers.com/2020/02/get-and-set-list-elements-with-magrittr/
+#'
+#' @param string the target string
+#'
+#' @noRd
+#'
+set_sb <- .Primitive("[<-")
