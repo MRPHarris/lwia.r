@@ -69,8 +69,16 @@ clean_data <- function(data,
 #'
 #' @noRd
 #'
-split.equals <- function(string, get = 1, trim_ws = T){
-  newstr <- unlist(lapply(strsplit(string,"[=]"),"[[",get))
+split.equals <- function(string, get = 1, trim_ws = T, collapse = T){
+  if(length(get) == 1){
+    newstr <- unlist(lapply(strsplit(string,"[=]"),"[[",get))
+  } else {
+    # Single brackets
+    newstr <- unlist(lapply(strsplit(string,"[=]"),"[",get))
+  }
+  if(collapse){
+    newstr <- paste(newstr)
+  }
   if(trim_ws){
     newstr <- newstr %>% trimws()
   }
@@ -89,8 +97,16 @@ split.equals <- function(string, get = 1, trim_ws = T){
 #'
 #' @noRd
 #'
-split.colon <- function(string, get = 1, trim_ws = T){
-  newstr <- unlist(lapply(strsplit(string,"[:]"),"[[",get))
+split.colon <- function(string, get = 1, trim_ws = T, collapse = T){
+  if(length(get) == 1){
+    newstr <- unlist(lapply(strsplit(string,"[:]"),"[[",get))
+  } else {
+    # Single brackets
+    newstr <- unlist(lapply(strsplit(string,"[:]"),"[",get))
+  }
+  if(collapse){
+    newstr <- paste(newstr)
+  }
   if(trim_ws){
     newstr <- newstr %>% trimws()
   }
