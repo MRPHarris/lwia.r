@@ -20,11 +20,6 @@
 parse_lwia_files <- function(target,
                              type = "Processed",
                              rc = 0){
-  # Vars for intra-fn testing
-  # target = "E:/mh work live 2024-05-07/Analysis/PH22 isotopes/Processed data/Round 1/"
-  # target = "E:/mh work live 2024-05-07/Analysis/PH22 isotopes/Processed data/Round 1/lwia_2024-02-13_f0003-Processed.txt"
-  # type = "Processed"
-  # rc = 0
   # Detect if file or directory
   if(dir.exists(target)){
     ## it's a directory. List and recurse.

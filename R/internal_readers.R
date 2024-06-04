@@ -100,32 +100,25 @@ detailed.diag.reader = function(filename_full){
   # names
   analysis_names <- diag_trim[7:9,] %>%
     set_sb(c(1,3),split.equals(diag_trim[c(7,9),])) %>%
-    set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
+    set_mb(2,split.colon(diag_trim[8,]))
   names(diag_list[[6]]) <- analysis_names
   ## Rej filters
   # contents
   rejection_contents <- diag_trim[11:29,] %>%
-    set_sb(.,split.equals(diag_trim[c(11:29),],2)) #%>%
-  # set_mb(2,split.colon(diag_trim[8,],2))
+    set_sb(.,split.equals(diag_trim[c(11:29),],2))
   diag_list[[7]][c(1:19)] <- rejection_contents
   # names
   rejection_names <- diag_trim[11:29,] %>%
-    set_sb(.,split.equals(diag_trim[c(11:29),])) #%>%
-  # set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
+    set_sb(.,split.equals(diag_trim[c(11:29),]))
   names(diag_list[[7]]) <- rejection_names
 
   ## Warning/rej filters
   filter_contents <- diag_trim[31:45,] %>%
-    set_sb(.,split.equals(diag_trim[c(31:45),],2)) #%>%
-  # set_mb(2,split.colon(diag_trim[8,],2))
+    set_sb(.,split.equals(diag_trim[c(31:45),],2))
   diag_list[[8]][c(1:15)] <- filter_contents
   # names
   filter_names <- diag_trim[31:45,] %>%
-    set_sb(.,split.equals(diag_trim[c(31:45),])) #%>%
-  # set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
+    set_sb(.,split.equals(diag_trim[c(31:45),]))
   names(diag_list[[8]]) <- filter_names
   ## User settings
   # content
@@ -140,37 +133,28 @@ detailed.diag.reader = function(filename_full){
   names(diag_list[[9]]) <- user_names
   ## Injected vol
   inj_contents <- diag_trim[50:53,] %>%
-    set_sb(.,split.equals(diag_trim[c(50:53),],2)) #%>%
-  # set_mb(2,split.colon(diag_trim[8,],2))
+    set_sb(.,split.equals(diag_trim[c(50:53),],2))
   diag_list[[10]][c(1:4)] <- inj_contents
   # names
   inj_names <- diag_trim[50:53,] %>%
-    set_sb(.,split.equals(diag_trim[c(50:53),])) #%>%
-  # set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
+    set_sb(.,split.equals(diag_trim[c(50:53),]))
   names(diag_list[[10]]) <- inj_names
   ## Internal controls
   cntrl_contents <- diag_trim[55:61,] %>%
     set_mb(1,NA) %>%
-    set_sb(c(2:7),split.equals(diag_trim[c(56:61),],2)) #%>%
-  # set_mb(2,split.colon(diag_trim[8,],2))
+    set_sb(c(2:7),split.equals(diag_trim[c(56:61),],2))
   diag_list[[11]][c(1:7)] <- cntrl_contents
   # names
   cntrl_names <- diag_trim[55:61,] %>%
-    set_sb(.,split.equals(diag_trim[c(55:61),])) #%>%
-  # set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
+    set_sb(.,split.equals(diag_trim[c(55:61),]))
   names(diag_list[[11]]) <- cntrl_names
   ## repavg settings
   repavg_contents <- diag_trim[63:65,] %>%
-    set_sb(.,split.equals(diag_trim[c(63:65),],2)) #%>%
-  # set_mb(2,split.colon(diag_trim[8,],2))
+    set_sb(.,split.equals(diag_trim[c(63:65),],2))
   diag_list[[12]][c(1:3)] <- repavg_contents
   # names
   cntrl_names <- diag_trim[63:65,] %>%
-    set_sb(.,split.equals(diag_trim[c(63:65),])) #%>%
-  # set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
+    set_sb(.,split.equals(diag_trim[c(63:65),]))
   names(diag_list[[12]]) <- cntrl_names
   ## misc settings
   repavg_contents <- diag_trim[67:75,] %>%
@@ -184,8 +168,6 @@ detailed.diag.reader = function(filename_full){
     set_sb(c(1,2),split.colon(diag_trim[c(67,68),],1)) %>%
     set_sb(c(3:8),split.equals(diag_trim[c(69:74),],1)) %>%
     set_sb(c(9),split.colon(diag_trim[c(75),],1))
-  # set_mb(2,split.colon(diag_trim[8,]))# %>%
-  # set(3,split.equals(diag_trim[9,]))
   names(diag_list[[13]]) <- cntrl_names
   ## Standards
   diag_list[[14]] <- read.table(textConnection(diag_trim[(grep("Standards Used:",diag[,1])+1):nrow(diag_trim),]), header = T)
