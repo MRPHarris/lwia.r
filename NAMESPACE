@@ -3,6 +3,7 @@
 export(combine_lwia_data)
 export(get_standards_library)
 export(parse_lwia_files)
+export(trim_lwia_data)
 importFrom(R.utils,findFiles)
 importFrom(dplyr,filter)
 importFrom(dplyr,mutate_at)

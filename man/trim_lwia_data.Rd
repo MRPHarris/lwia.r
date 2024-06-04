@@ -12,6 +12,8 @@ trim_lwia_data(
 )
 }
 \arguments{
+\item{parsed_data}{output from parse_lwia_files.}
+
 \item{remove_DI}{NULL or character vector with DI water sample/control/standard strings.}
 
 \item{remove_externals}{NULL or character vector with external calibration sample/control/standard strings.}
