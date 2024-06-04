@@ -50,10 +50,13 @@ parse_lwia_files <- function(target,
     }
     if(type == "Processed"){
       data <- parse.processed(target)
+    } else if(type == "Detailed"){
+      data <- parse.detailed(target, content = "all")
     } else {
       stop("Type: ",type," not supported.")
     }
     if(rc == 0){
+      # recursion
       datalist <- vector('list',1) %>%
         'names<-'(trim_path(target))
       datalist[[1]] <- data

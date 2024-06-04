@@ -97,9 +97,13 @@ split.equals <- function(string, get = 1, trim_ws = T, collapse = T){
 #'
 #' @noRd
 #'
-split.colon <- function(string, get = 1, trim_ws = T, collapse = T){
+split.colon <- function(string, get = 1, trim_ws = T, collapse = T, forcesb = F){
   if(length(get) == 1){
-    newstr <- unlist(lapply(strsplit(string,"[:]"),"[[",get))
+    if(forcesb){
+      newstr <- unlist(lapply(strsplit(string,"[:]"),"[",get))
+    } else {
+      newstr <- unlist(lapply(strsplit(string,"[:]"),"[[",get))
+    }
   } else {
     # Single brackets
     newstr <- unlist(lapply(strsplit(string,"[:]"),"[",get))
