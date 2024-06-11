@@ -9,7 +9,7 @@ parse_lwia_files(target, type = "Processed", rc = 0)
 \arguments{
 \item{target}{A complete folder or file path as a string.}
 
-\item{type}{a group of EEMs compliant with the staRdom/EEM/eemR package framework}
+\item{type}{one of either "Processed" or "Detailed". The type of file to parse.}
 
 \item{rc}{used by the function to tell if it is recursing (0 for no, 1 for yes).}
 }

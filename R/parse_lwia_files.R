@@ -3,7 +3,7 @@
 #' @description Read and parse the two file types generated when saving processed data from the LWIA post-processing software
 #'
 #' @param target A complete folder or file path as a string.
-#' @param type a group of EEMs compliant with the staRdom/EEM/eemR package framework
+#' @param type one of either "Processed" or "Detailed". The type of file to parse.
 #' @param rc used by the function to tell if it is recursing (0 for no, 1 for yes).
 #'
 #' @importFrom magrittr %>%
